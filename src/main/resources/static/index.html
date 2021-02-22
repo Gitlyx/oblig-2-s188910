@@ -37,67 +37,62 @@
         <div class="col">
             <div class="form-group">
                 <label for="firstName">First name</label>
-                <input type="text" id="firstName" class="form-control valid" placeholder="John" required/>
-                <small class="invalid-feedback">Please enter a valid name.</small>
+                <input type="text" id="firstName" class="form-control" placeholder="John" required>
+                <small class="invalid-feedback">Please enter your name.</small>
             </div>
         </div>
         <div class="col">
             <div class="form-group">
                 <label for="lastName">Last name</label>
-                <input type="text" id="lastName" class="form-control valid" placeholder="Smith" required/>
-                <small class="invalid-feedback">Please enter a valid last name.</small>
+                <input type="text" id="lastName" class="form-control" placeholder="Smith" required>
+                <small class="invalid-feedback">Please enter your last name.</small>
             </div>
         </div>
     </div>
     <div class="row"></div>
     <div class="form-group">
         <label for="phoneNumber">Phone number</label>
-        <input type="text" id="phoneNumber" class="form-control valid" placeholder="+47" required/>
-        <small class="invalid-feedback">Phone number is not valid.</small>
+        <input type="text" id="phoneNumber" class="form-control" placeholder="+47" required>
+        <small class="invalid-feedback">Phone number required.</small>
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" id="email" class="form-control valid" placeholder="email@example.com" required/>
+        <input type="text" id="email" class="form-control " placeholder="email@example.com" required>
+        <small class="invalid-feedback">Email required.</small>
+
     </div>
 
     <div class="form-group row">
         <div class="col-8">
             <label for="movie">Movie:</label>
-            <select type="text" id="movie" onChange="" class="form-control valid">
+            <select type="text" id="movie" onChange="" class="form-control" required>
+                <option></option>
                 <option>Attack on Titan Season: 1</option>
                 <option>Attack on Titan Season: 2</option>
                 <option>Attack on Titan Season: 3</option>
                 <option>Attack on Titan Season: 4</option>
             </select>
+            <small class="invalid-feedback">Please select a movie.</small>
         </div>
         <div class="col-4">
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" value="2" class="form-control valid"/>
+            <input type="number" id="quantity" class="form-control" min="0" required>
+            <small class="invalid-feedback">Number of tickets need to be at least 1.</small>
         </div>
     </div>
 
-    <div class="form-check">
-        <input type="checkbox" id="checkbox" class="form-check-input"/>
-        <label for="checkbox" class="form-check-label">I agree to terms & conditions.</label>
-    </div>
     <br/>
 
-    <button type="submit" id="submit" class="btn btn-primary">Book me in!</button>
+    <button type="submit" class="btn btn-outline-primary">Book me in!</button>
 </form>
+<table id="purchaseID" style="border: 1px solid black; text-align: left"></table>
+<button type="submit" class="btn btn-primary" onClick="displayArray()"></button>
 
 <script src="javascript.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </body>
 </html>

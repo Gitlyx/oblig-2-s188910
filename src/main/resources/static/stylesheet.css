@@ -1,30 +1,4 @@
-body {
-    font-family: Calibri;
-}
-.mainContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 30px 30px 60px 30px;
-    border: 1px solid;
-    border-radius: 10px;
-
-}
-#questionForm {
-    width: 300px;
-
-}
-button {
-    width: 40%;
-
-}
-input, select {
-    margin-bottom: 0px;
+.ticket-form {
+    margin: auto;
+    margin-top: 50px;
 }

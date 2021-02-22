@@ -2,36 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="JavaScript.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="javascript.js"></script>
-    <link rel="stylesheet" href="stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Home</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-<div class="mainContainer">
-    <div class="container" id="questionForm">
-        <h2>Purchase tickets v2.0</h2>
-        Movie:
-        <select type="text" id="movie" onChange="">
-            Movie:
-            <option>Attack on Titan Season: 1</option>
-            <option>Attack on Titan Season: 2</option>
-            <option>Attack on Titan Season: 3</option>
-            <option>Attack on Titan Season: 4</option>
-        </select>
-        Quantity: <input type="number" id="quantity" value="2" onChange="ticketValidation()"/>
-        First name: <input type="text" id="firstName"/>
-        Last name: <input type="text" id="lastName"/>
-        Phone number: <input type="text" id="phoneNumber"/>
-        Email: <input type="text" id="email"/>
-        <br/>
-        <button type="submit">Submit order</button>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">gitlyx - s188910</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Apps</a>
+            </li>
+        </ul>
     </div>
 
-</div>
-<div class="container">
-<h1>Your tickets:</h1>
-</div>
+</nav>
+
+<form class="ticket-form main-form card card-body col-sm-8 mg-auto needs-validation" action="" novalidate>
+    <h6 class="card-header bg-transparent"> Ticketmaster v2.0</h6>
+    <br/>
+    <h2 class="card-title">Book your movie ticket</h2>
+    <br/>
+
+    <div class=" row">
+        <div class="col">
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" class="form-control valid" placeholder="John" required/>
+                <small class="invalid-feedback">Please enter a valid name.</small>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" class="form-control valid" placeholder="Smith" required/>
+                <small class="invalid-feedback">Please enter a valid last name.</small>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="form-group">
+        <label for="phoneNumber">Phone number</label>
+        <input type="text" id="phoneNumber" class="form-control valid" placeholder="+47" required/>
+        <small class="invalid-feedback">Phone number is not valid.</small>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-control valid" placeholder="email@example.com" required/>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-8">
+            <label for="movie">Movie:</label>
+            <select type="text" id="movie" onChange="" class="form-control valid">
+                <option>Attack on Titan Season: 1</option>
+                <option>Attack on Titan Season: 2</option>
+                <option>Attack on Titan Season: 3</option>
+                <option>Attack on Titan Season: 4</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" value="2" class="form-control valid"/>
+        </div>
+    </div>
+
+    <div class="form-check">
+        <input type="checkbox" id="checkbox" class="form-check-input"/>
+        <label for="checkbox" class="form-check-label">I agree to terms & conditions.</label>
+    </div>
+    <br/>
+
+    <button type="submit" id="submit" class="btn btn-primary">Book me in!</button>
+</form>
+
+<script src="javascript.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>

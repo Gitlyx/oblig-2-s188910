@@ -27,12 +27,12 @@
 
 </nav>
 
-<form class="ticket-form main-form card card-body col-sm-8 mg-auto needs-validation" action="" novalidate>
+<form class="ticket-form main-form card card-body col-sm-8 mg-auto needs-validation border-secondary mb-3" action=""
+      novalidate>
     <h6 class="card-header bg-transparent"> Ticketmaster v2.0</h6>
     <br/>
     <h2 class="card-title">Book your movie ticket</h2>
     <br/>
-
     <div class=" row">
         <div class="col">
             <div class="form-group">
@@ -59,9 +59,7 @@
         <label for="email">Email</label>
         <input type="text" id="email" class="form-control " placeholder="email@example.com" required>
         <small class="invalid-feedback">Email required.</small>
-
     </div>
-
     <div class="form-group row">
         <div class="col-8">
             <label for="movie">Movie:</label>
@@ -80,19 +78,42 @@
             <small class="invalid-feedback">Number of tickets need to be at least 1.</small>
         </div>
     </div>
-
     <br/>
 
-    <button type="submit" class="btn btn-outline-primary">Book me in!</button>
+    <button type="button" id="regTicket" class="btn btn-outline-dark">Book me in!</button>
 </form>
-<table id="purchaseID" style="border: 1px solid black; text-align: left"></table>
-<button type="submit" class="btn btn-primary" onClick="displayArray()"></button>
+
+<form class="ticket-form main-form card card-body col-sm-8 mg-auto needs-validation border-secondary mb-3" action=""
+      novalidate>
+    <h2 class="card-title text-center">Tickets</h2>
+    <table class="ticket-form table">
+        <tr class="text-center">
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Movie name</th>
+        </tr>
+        </table>
+    <button type="button" id="deleteAll" class="btn btn-outline-dark" onClick="">Delete table</button>
+</form>
+
+
+
 
 <script src="javascript.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </body>
 </html>

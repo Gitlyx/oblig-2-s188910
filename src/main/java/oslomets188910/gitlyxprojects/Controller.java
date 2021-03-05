@@ -1,4 +1,4 @@
-package storeServer;
+package oslomets188910.gitlyxprojects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
+
 @RestController
 public class Controller {
 
@@ -15,12 +16,12 @@ public class Controller {
     AppRepository repo;
 
     @PostMapping("/store")
-    public void store(TicketArrays ticketArrays) {
-        repo.insert(ticketArrays);
+    public void store(TicketBank ticketList) {
+        repo.insert(ticketList);
     }
 
     @GetMapping("/retrieve")
-    public ArrayList<TicketArrays> retrieve() {
+    public ArrayList<TicketBank> retrieve() {
         return repo.retrieve();
     }
 

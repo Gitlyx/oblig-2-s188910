@@ -1,4 +1,4 @@
-package storeServer;
+package oslomets188910.gitlyxprojects;
 
 import org.springframework.stereotype.Repository;
 
@@ -6,14 +6,16 @@ import java.util.ArrayList;
 
 @Repository
 public class AppRepository {
-    private static final ArrayList<TicketArrays> ticketList = new ArrayList<>();
+    private final ArrayList<TicketBank> ticketList = new ArrayList<>();
 
-    public void insert(TicketArrays ticket) {
+    public void insert(TicketBank ticket) {
         ticketList.add(ticket);
     }
-    public ArrayList<TicketArrays> retrieve() {
+
+    public ArrayList<TicketBank> retrieve() {
         return ticketList;
     }
+
     public void deleteAll() {
         ticketList.clear();
     }

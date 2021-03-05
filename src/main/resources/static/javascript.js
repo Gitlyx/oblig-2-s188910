@@ -1,13 +1,13 @@
 $(() => {
     $("#regTicket").click(() => {
-        const firstName = $(firstName);
-        const lastName = $(lastName);
-        const phoneNumber = $(phoneNumber);
-        const email = $(email);
-        const movie = $(movie);
-        const quantity = $(quantity);
+        const firstName = $("#firstName");
+        const lastName = $("#lastName");
+        const phoneNumber = $("#phoneNumber");
+        const email = $("#email");
+        const movie = $("#movie");
+        const quantity = $("#quantity");
 
-        const ticketArray = {
+        const ticketList = {
             firstName: firstName.val(),
             lastName: lastName.val(),
             phoneNumber: phoneNumber.val(),
@@ -16,42 +16,54 @@ $(() => {
             quantity: quantity.val()
         };
 
-        if (inputValidation(ticketArray)) {
-            $.post("/store", ticketArray, () => {
-                retrieveData()
-                firstName.val();
-                lastName.val();
-                phoneNumber.val();
-                email.val();
-                movie.val();
-                quantity.val();
-            });
+        if (inputVal(ticketList)) {
+            $.post("/store", ticketList, () => retrieve());
+            firstName.val("");
+            lastName.val("");
+            phoneNumber.val("");
+            email.val("");
+            movie.val("");
+            quantity.val("");
+
+            console.log("Successful")
         } else {
-            console.log("Error message")
+            console.log("Unsucessful")
         }
 
         $("#delete").click(() => {
             $.ajax({
                 url: "/delete",
                 type: "DELETE",
-                success: retrieveData()
+                success: retrieve()
             })
         });
     });
 });
 
-const retrieve = () => $.get("/retrieve", tickets => formatList(tickets));
+const retrieve = () => $.get("/store", tickets => format(tickets));
 
-const inputValidation = ticketArray => {
-    if (ticketArray.firstName === "") return false;
-    if (ticketArray.lastName === "") return false;
-    if (ticketArray.phoneNumber === "") return false;
-    if (ticketArray.email === "") return false;
-    if (ticketArray.movie === "") return false;
-    if (ticketArray.quantity === "") return false;
+const inputVal = ticketList => {
+    console.log("Validation:");
+    if (ticketList.firstName === "") {
+        console.log("noname")
+        return false;
+    } else if (ticketList.lastName === "") {
+        console.log("nolastname")
+        return false;
+    } else if (ticketList.phoneNumber === "") {
+        console.log("nophonenumber")
+        return false;
+    } else if (ticketList.email === "") {
+        console.log("noemail");
+        return false;
+    } else {
+        return true;
+    }
+
+
 }
 
-const formatList = tickets => {
+const format = tickets => {
     let output = `<table><tr>
         <td>Name</td>
         <td>Surname</td>
@@ -59,7 +71,7 @@ const formatList = tickets => {
         <td>Email</td>
         <td>Movie</td>
         <td>Quantity</td>
-        </tr></table>`;
+        </tr>`;
 
     for (let ticket of tickets) {
         output += `<tr>
@@ -71,5 +83,6 @@ const formatList = tickets => {
         <td>ticket.quantity</td>
         </tr>`;
     }
-    $("tickets").html.output;
+    output += `</table>`;
+    $("tickets").html(output);
 }

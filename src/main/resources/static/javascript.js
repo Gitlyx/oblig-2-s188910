@@ -17,72 +17,90 @@ $(() => {
         };
 
         if (inputVal(ticketList)) {
-            $.post("/store", ticketList, () => retrieve());
+            $.post("/post", ticketList, () => postTicket());
             firstName.val("");
             lastName.val("");
             phoneNumber.val("");
             email.val("");
-            movie.val("");
             quantity.val("");
-
-            console.log("Successful")
-        } else {
-            console.log("Unsucessful")
         }
 
         $("#delete").click(() => {
             $.ajax({
                 url: "/delete",
                 type: "DELETE",
-                success: retrieve()
-            })
+                success: postTicket()
+            });
         });
     });
 });
 
-const retrieve = () => $.get("/store", tickets => format(tickets));
+const postTicket = () => $.get("/get", tickets => formatTickets(tickets));
 
 const inputVal = ticketList => {
-    console.log("Validation:");
     if (ticketList.firstName === "") {
-        console.log("noname")
-        return false;
-    } else if (ticketList.lastName === "") {
-        console.log("nolastname")
-        return false;
-    } else if (ticketList.phoneNumber === "") {
-        console.log("nophonenumber")
-        return false;
-    } else if (ticketList.email === "") {
-        console.log("noemail");
+        $("#firstNameError").html("Please enter a last name here.");
         return false;
     } else {
-        return true;
+        $("#firstNameError").html("");
     }
 
+    if (ticketList.lastName === "") {
+        $("#lastNameError").html("Please enter a last name here.");
+        return false;
+    } else {
+        $("#lastNameError").html("");
+    }
 
+    if (ticketList.phoneNumber === "") {
+        $("#phoneNumberError").html("Please enter a phone nummber");
+        return false;
+    } else {
+        $("#phoneNumberError").html("");
+    }
+
+    if (ticketList.email === "") {
+        $("#emailError").html("Please enter a phone nummber");
+        return false;
+    } else {
+        $("#emailError").html("");
+    }
+
+    if (ticketList.movie === "") {
+        $("#movieError").html("Please select a movie");
+        return false;
+    } else {
+        $("#movieError").html("");
+    }
+
+    if (ticketList.quantity === "") {
+        $("#quantityError").html("Please select quantity.");
+        return false;
+    } else {
+        $("#quantityNumberError").html("");
+    }
+    return true;
 }
-
-const format = tickets => {
-    let output = `<table><tr>
-        <td>Name</td>
-        <td>Surname</td>
-        <td>Phone number</td>
-        <td>Email</td>
-        <td>Movie</td>
-        <td>Quantity</td>
-        </tr>`;
+const formatTickets = (tickets) => {
+    let output = "<table><tr>" +
+        "<th>Name</th>" +
+        "<th>Last name</th>" +
+        "<th>Phone number</th>" +
+        "<th>Email</th>" +
+        "<th>Movie</th>" +
+        "<th>Quantity</th>" +
+        "</tr>";
 
     for (let ticket of tickets) {
-        output += `<tr>
-        <td>ticket.firstName</td>
-        <td>ticket.lastName</td>
-        <td>ticket.phoneNumber</td>
-        <td>ticket.email</td>
-        <td>ticket.movie</td>
-        <td>ticket.quantity</td>
-        </tr>`;
+        output += "<tr>" +
+            "<td>" + ticket.firstName + "</td>" +
+            "<td>" + ticket.lastName + "</td>" +
+            "<td>" + ticket.phoneNumber + "</td>" +
+            "<td>" + ticket.email + "</td>" +
+            "<td>" + ticket.movie + "</td>" +
+            "<td>" + ticket.quantity + "</td>" +
+            "</tr>";
     }
     output += `</table>`;
-    $("tickets").html(output);
+    $("#tickets").html(output);
 }

@@ -1,6 +1,5 @@
 package oslomets188910.gitlyxprojects;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,21 +11,20 @@ import java.util.ArrayList;
 @RestController
 public class Controller {
 
-    @Autowired
-    AppRepository repo;
+    private final ArrayList<TicketObject> ticketList = new ArrayList<>();
 
-    @PostMapping("/store")
-    public void store(TicketBank ticketList) {
-        repo.insert(ticketList);
+    @PostMapping("/post")
+    public void store(TicketObject tickets) {
+        ticketList.add(tickets);
     }
 
-    @GetMapping("/retrieve")
-    public ArrayList<TicketBank> retrieve() {
-        return repo.retrieve();
+    @GetMapping("/get")
+    public ArrayList<TicketObject> get() {
+        return ticketList;
     }
 
     @DeleteMapping("/delete")
     public void delete() {
-        repo.deleteAll();
+        ticketList.clear();
     }
 }
